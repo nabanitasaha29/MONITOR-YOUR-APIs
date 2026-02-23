@@ -345,7 +345,7 @@ button:disabled {
 
 
 .health-badge {
-  cursor: help;
+  cursor: pointer;
 }
 
 
