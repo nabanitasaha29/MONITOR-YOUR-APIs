@@ -122,7 +122,7 @@ function ApiMonitor() {
   return (
     <div className="monitor-wrapper">
       <div className="container">
-        <h1  className="container-title">AgriStack Service Monitor</h1>
+       
 
         <div className="grid">
           {groups.map((groupName) => {

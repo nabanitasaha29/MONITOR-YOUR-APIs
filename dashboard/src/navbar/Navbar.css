@@ -1,4 +1,9 @@
 .navbar {
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(11, 18, 33, 0.9);
@@ -9,7 +14,8 @@
   color: white;
   position: sticky;
   top: 0;
-  z-index: 60; /* Below sidebar if you want sidebar to sit above */
+  z-index: 60;
+  
 }
 
 .navbar-left .logo {
@@ -41,6 +47,7 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
+
 .nav-icon:hover,
 .nav-icon:focus-visible {
   background: #1e293b;

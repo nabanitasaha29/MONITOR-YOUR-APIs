@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { Bell, BarChart3, User } from "lucide-react";
-
+//import NavBarImg from "../../public/Agri stack logo.png";
 const Navbar = () => {
   return (
     <nav className="navbar">

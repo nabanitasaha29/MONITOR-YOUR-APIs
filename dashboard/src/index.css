@@ -44,3 +44,12 @@ p {
 *::-webkit-scrollbar {
   display: none;
 }
+
+
+*
+  :-ms-fullscreen:fullscreen,
+  :-webkit-full-screen:fullscreen,
+  :fullscreen {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  } 

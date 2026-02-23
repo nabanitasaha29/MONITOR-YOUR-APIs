@@ -1,15 +1,19 @@
 .sidebar {
   width: var(--sidebar-w);
-  height: 100vh;
+  
+height: auto;
+min-height: 100%;
+  align-self: stretch;
+
   background: linear-gradient(180deg, #071125, #0f172a 60%, #0b1221);
   border-right: 1px solid rgba(11, 18, 33, 0.85);
   color: var(--text);
   display: flex;
   flex-direction: column;
   transition: width 0.25s ease;
-  position: sticky;
+  position: relative;
   top: 0;
-  z-index: 70; /* Above navbar edge */
+  z-index: 70; 
   box-shadow:
     inset -1px 0 0 rgba(56, 189, 248, 0.03),
     6px 0 18px rgba(0, 0, 0, 0.35);
@@ -18,14 +22,79 @@
 .sidebar.collapsed { width: var(--sidebar-w-collapsed); }
 
 .sidebar-top {
+
+  
+ position: sticky;
+  top: 0;
+  z-index: 1;
+
   height: 56px;
   display: flex;
-  align-items:self-start;
+  align-items:center;
   gap: 10px;
   padding: 0 12px;
   border-bottom: 1px solid rgba(11, 18, 33, 0.85);
 }
 
+
+
+.sidebar-menu {
+  flex: 1;
+  padding: 12px 8px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #cbd5f5;
+  font-size: 14px;
+  text-decoration: none;          
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.sidebar-item:hover,
+.sidebar-item:focus-visible {
+  background: #132036;
+  color: #fff;
+  outline: none;
+  border-color: rgba(56, 189, 248, 0.15);
+}
+
+.sidebar-item.active {
+  background: linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.05));
+  color: #fff;
+  border: 1px solid rgba(56,189,248,.25);
+}
+
+.sidebar-bottom { padding: 10px; border-top: 1px solid #0b1221; }
+
+.sidebar.collapsed .sidebar-item {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
 .hamburger {
   background: rgba(2, 6, 23, 0.35);
@@ -117,3 +186,27 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
