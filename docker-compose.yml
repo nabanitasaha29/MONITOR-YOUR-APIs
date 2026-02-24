@@ -1,0 +1,48 @@
+services:
+  dashboard:
+    build:
+      context: ./dashboard
+    container_name: dashboard
+    networks:
+      - appnet
+
+  gateway:
+    build:
+      context: ./api-monitor/gateway
+    container_name: gateway
+    networks:
+      - appnet
+    depends_on:
+      - monitor
+    environment:
+      PORT: 3000
+
+  monitor:
+    build:
+      context: ./api-monitor/monitor
+    container_name: monitor
+    networks:
+      - appnet
+
+healthcheck:
+  test: ["CMD", "wget", "-qO-", "http://localhost:8000/health"]
+  interval: 30s
+  timeout: 5s
+  retries: 3
+
+  reverse-proxy:
+    build:
+      context: ./api-monitor/reverse-proxy
+    container_name: reverse-proxy
+    depends_on:
+      - dashboard
+      - gateway
+      - monitor
+    ports:
+      - "80:80"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
