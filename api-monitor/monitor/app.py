@@ -1,7 +1,8 @@
+
 from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 from typing import Optional
-from service import run_monitor
+from service import run_monitor, apis  # apis is loaded from config.json in service.py
 
 app = FastAPI(title="API Monitor")
 
@@ -10,6 +11,10 @@ _last_results = None  # cache last run in memory
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/groups")
+def groups():
+    return list(apis.keys())
 
 @app.post("/run")
 def run(group: Optional[str] = Query(default=None, description="Optional group filter")):
