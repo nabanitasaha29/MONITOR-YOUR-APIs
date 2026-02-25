@@ -1,5 +1,9 @@
+
+
 import { useState, useEffect } from "react";
 import "./ApiMonitor.css";
+
+const API_BASE = "/api"; // go through reverse-proxy
 
 function ApiMonitor() {
   const [groups, setGroups] = useState([]);
@@ -8,10 +12,16 @@ function ApiMonitor() {
 
   // Load groups on first render
   useEffect(() => {
-    fetch("http://localhost:4000/groups")
-      .then((res) => res.json())
+    fetch(`${API_BASE}/groups`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => setGroups(data))
-      .catch(() => alert("Failed to load groups"));
+      .catch((e) => {
+        console.error("Failed to load groups:", e);
+        alert("Failed to load groups");
+      });
   }, []);
 
   const runGroup = async (groupName) => {
@@ -19,8 +29,9 @@ function ApiMonitor() {
 
     try {
       const res = await fetch(
-        `http://localhost:4000/run-monitor?group=${groupName}`,
+        `${API_BASE}/run-monitor?group=${encodeURIComponent(groupName)}`,
       );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
 
       setResults((prev) => [
@@ -28,10 +39,11 @@ function ApiMonitor() {
         ...data,
       ]);
     } catch (err) {
+      console.error("Failed to run group:", err);
       alert("Failed to run group");
+    } finally {
+      setLoadingGroup(null);
     }
-
-    setLoadingGroup(null);
   };
 
   const groupedResults = results.reduce((acc, result) => {
@@ -41,7 +53,6 @@ function ApiMonitor() {
   }, {});
 
   //  HEALTH LOGIC
-
   const getGroupHealth = (groupApis) => {
     if (!groupApis || groupApis.length === 0) {
       return {
@@ -122,8 +133,6 @@ function ApiMonitor() {
   return (
     <div className="monitor-wrapper">
       <div className="container">
-       
-
         <div className="grid">
           {groups.map((groupName) => {
             const groupApis = groupedResults[groupName] || [];
@@ -185,7 +194,6 @@ function ApiMonitor() {
                           >
                             {r.status}
                             {r.statusText && ` • ${r.statusText}`}
-                            {console.log(r.statusText)}
                           </span>
                         </div>
 
