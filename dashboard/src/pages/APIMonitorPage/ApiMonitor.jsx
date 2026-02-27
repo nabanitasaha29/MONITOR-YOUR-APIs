@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import "./ApiMonitor.css";
 
-const API_BASE = "/api"; // go through reverse-proxy
+// const API_BASE = "/api"; // go through reverse-proxy
+
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
 function ApiMonitor() {
   const [groups, setGroups] = useState([]);

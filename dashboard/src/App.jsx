@@ -5,7 +5,7 @@ import SidebarRoutes from "./routes/SidebarRoutes.jsx";
 import "./App.css";
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <div className={`app-layout ${collapsed ? "sidebar-collapsed" : ""}`}>
@@ -16,11 +16,13 @@ function App() {
 
       <div className="main-content">
         <Navbar />
-        <div className="content-scroll">
+        <SidebarRoutes />
+        {/* not in use this time */}
+        {/* <div className="content-scroll">
           <div className="monitor-wrapper">
-            <SidebarRoutes />
+            
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
