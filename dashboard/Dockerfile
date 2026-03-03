@@ -10,7 +10,9 @@ RUN npm run build
 
 # Serve with Nginx
 FROM nginx:1.27-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+RUN mkdir -p /usr/share/nginx/html/dashboard
+#COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist/ /usr/share/nginx/html/dashboard/
 
 
 
