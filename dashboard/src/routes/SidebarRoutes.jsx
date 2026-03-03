@@ -10,13 +10,13 @@ import GroupsPage from "../pages/GroupsPage/GroupsPage.jsx";
 const SidebarRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/" element={<Navigate to="/landing-page" replace />} />
 
-      <Route path="/dashboard" element={<DahsboardLandingPage />} />
+      <Route path="/landing-page" element={<DahsboardLandingPage />} />
       <Route path="/api-monitor" element={<ApiMonitor />} />
       <Route path="/groups" element={<GroupsPage />} />
 
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/landing-page" replace />} />
     </Routes>
   );
 };
