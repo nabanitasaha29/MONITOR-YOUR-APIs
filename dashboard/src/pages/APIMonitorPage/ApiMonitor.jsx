@@ -7,7 +7,7 @@ const API_BASE = import.meta.env.VITE_API_BASE || "/dashboard/monitor";
 // front-end route types to backend folder types
 const TYPE_MAP = {
   "farmer-registry": "fr",
-  "mapper-apis": "mappers",
+  mapper: "mappers",
   "dcs-apis": "dcs",
   "dpe-apis": "dpe",
 };
@@ -77,7 +77,7 @@ function ApiMonitor() {
     try {
       const url =
         `${API_BASE}/run/by-type?type=${normalizedType}&code=${code}` +
-        `&group=${encodeURIComponent(groupName)}`;
+        `&selected_group=${encodeURIComponent(groupName)}`;
 
       const res = await fetch(url, { method: "POST" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);

@@ -1,0 +1,839 @@
+{
+    "Mapper API HR i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "HR Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://hrde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "75889242911",
+                                            "state_lgd_code": "6"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API KA i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "KA Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://kade.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "58989297997",
+                                            "state_lgd_code": "29"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API PB i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "PB Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://pbde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "33623141457",
+                                            "state_lgd_code": "3"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API KL i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "KL Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://klde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "73225096638",
+                                            "state_lgd_code": "32"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API BH i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "BH Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://bhde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "32309283646",
+                                            "state_lgd_code": "10"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API RJ i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "RJ Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://rjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "92919411555",
+                                            "state_lgd_code": "8"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+   
+    "Mapper API CG i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "CG Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://cgde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "35747698276",
+                                            "state_lgd_code": "22"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API TN i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "TN Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://tnde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "87531384142",
+                                            "state_lgd_code": "33"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API TL i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "TL Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://tlde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "62160122251",
+                                            "state_lgd_code": "36"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API OD i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "OD Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://odde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "32339351980",
+                                            "state_lgd_code": "21"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API AP i2:o14": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "AP Soil Health Data by Farmer ID (i2:o14)",
+            "url": "https://apde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c9",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_soil_health_data",
+                                    "mapper_id": "i2:o14",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "59297109422",
+                                            "state_lgd_code": "28"
+                                        }
+                                    ]
+                                },
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ]
+}

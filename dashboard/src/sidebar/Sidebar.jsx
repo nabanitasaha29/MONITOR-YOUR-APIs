@@ -1,51 +1,44 @@
+
+
+// testing
 import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Menu,
-  Home,
-  Activity,
-  Layers,
-  Settings,
-  ChevronRight,
-} from "lucide-react";
+import { Menu, Home, Layers, Settings } from "lucide-react";
 import "./Sidebar.css";
+
+import { sidebarConfig } from "../sidebar/sidebarConfig.js";
+
+const Icons = { Home, Layers, Settings };
 
 const Sidebar = ({ collapsed, onToggle }) => {
   const [openGroups, setOpenGroups] = useState(false);
-  const [openFarmerRegistry, setOpenFarmerRegistry] = useState(false);
 
-  // Guard to handle "expand because Groups was clicked" without instantly closing submenus.
+  // separate open tracking for each dynamic section
+  const [openSections, setOpenSections] = useState({});
+
   const expandIntentRef = useRef(false);
 
   useEffect(() => {
     const cls = "sidebar-is-collapsed";
-    document.body.classList.toggle(cls, !!collapsed);
+    document.body.classList.toggle(cls, collapsed);
 
-    // When user collapses, close submenus — unless we are in an "expand-intent" flow.
-    if (collapsed) {
-      if (!expandIntentRef.current) {
-        setOpenGroups(false);
-        setOpenFarmerRegistry(false);
-      }
+    if (collapsed && !expandIntentRef.current) {
+      setOpenGroups(false);
+      setOpenSections({});
     }
+
     return () => document.body.classList.remove(cls);
   }, [collapsed]);
 
-  /** When Groups icon is clicked:
-   *  - If collapsed: expand sidebar, then open Groups submenu
-   *  - If expanded: normal toggle behavior
-   */
   const handleGroupsClick = () => {
     if (collapsed) {
       expandIntentRef.current = true;
 
-      // Expand the sidebar first
       onToggle?.();
 
-      // After layout updates, open the submenu
       requestAnimationFrame(() => {
         setOpenGroups(true);
-        // Clear the guard shortly after
+
         setTimeout(() => {
           expandIntentRef.current = false;
         }, 200);
@@ -55,244 +48,138 @@ const Sidebar = ({ collapsed, onToggle }) => {
     }
   };
 
-  return (
-    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      {/* TOP (pinned) */}
-      <div className="sidebar-top">
-        <button
-          className="hamburger"
-          onClick={onToggle}
-          aria-label="Toggle sidebar"
-          type="button"
-        >
-          <Menu className="hamburger-icon" size={22} />
-        </button>
-      </div>
-      {/* DASHBOARD FOR CENTRAL VIEW */}
-      {/* SCROLL (only this area scrolls) */}
-      <nav className="sidebar-menu" aria-label="Primary">
+  const toggleSection = (id) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const renderMenu = (item) => {
+    const Icon = Icons[item.icon];
+
+    if (item.type === "link") {
+      return (
         <NavLink
-          to="/dashboard"
+          key={item.id}
+          to={item.to}
           className={({ isActive }) =>
             `sidebar-item ${isActive ? "active" : ""}`
           }
-          title={collapsed ? "Dashboard" : undefined}
           end
         >
-          <span className="item-icon" aria-hidden="true">
-            <Home size={18} />
-          </span>
-          {!collapsed && <span className="item-label">Dashboard</span>}
+          <span className="item-icon">{Icon && <Icon size={18} />}</span>
+          {!collapsed && <span className="item-label">{item.label}</span>}
         </NavLink>
+      );
+    }
 
-        {/*API MONITOR ---WILL GET DELETED ONCE BIFERCATION IS DONE  */}
-        {/* <NavLink
-          to="/api-monitor"
-          className={({ isActive }) =>
-            `sidebar-item ${isActive ? "active" : ""}`
-          }
-          title={collapsed ? "API Monitor" : undefined}
-          end
-        >
-          <span className="item-icon" aria-hidden="true">
-            <Activity size={18} />
-          </span>
-          {!collapsed && <span className="item-label">API Monitor</span>}
-        </NavLink> */}
-
-        {/* GROUPS WHICH WILL BE BIFERCATED BASED ON TYPE [FR,DCS,MAPS] THEREAFTERER  SUB DIVIDED INTO STATES */}
-
-        {/* ===== GROUPS ===== */}
-        <div className="sidebar-group">
+    if (item.type === "group") {
+      return (
+        <div key={item.id} className="sidebar-group">
           <button
             type="button"
             className="sidebar-item group-toggle"
-            title={collapsed ? "Groups" : undefined}
-            // onClick={() => !collapsed && setOpenGroups((v) => !v)}
-            onClick={handleGroupsClick} /* ← updated */
+            onClick={handleGroupsClick}
             aria-expanded={!collapsed && openGroups}
-            aria-controls="submenu-groups"
           >
-            <span className="item-icon" aria-hidden="true">
-              <Layers size={18} />
-            </span>
-            {!collapsed && <span className="item-label">Groups</span>}
+            <span className="item-icon">{Icon && <Icon size={18} />}</span>
+            {!collapsed && <span className="item-label">{item.label}</span>}
           </button>
 
           {!collapsed && openGroups && (
-            <div
-              id="submenu-groups"
-              className="submenu open"
-              role="region"
-              aria-label="Groups submenu"
-            >
-              {/* Farmer Registry */}
-              <button
-                type="button"
-                className="submenu-item has-children"
-                onClick={() => setOpenFarmerRegistry((v) => !v)}
-                aria-expanded={openFarmerRegistry}
-                aria-controls="submenu-farmer-registry"
-              >
-                <span className="submenu-label">Farmer Registry APIs</span>
-                <span
-                  className={`chev ${openFarmerRegistry ? "open" : ""}`}
-                  aria-hidden="true"
-                >
-                  ▾
-                </span>
-              </button>
+            <div className="submenu open">{item.children.map(renderMenu)}</div>
+          )}
+        </div>
+      );
+    }
 
-              {openFarmerRegistry && (
-                <div
-                  id="submenu-farmer-registry"
-                  className="submenu nested open"
-                  role="region"
-                  aria-label="Farmer Registry APIs states"
-                >
-                  <NavLink
-                    to="/groups/farmer-registry/RJ"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Rajasthan
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/TN"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Tamil Nadu
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/BR"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Bihar
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/UP"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Uttar Pradesh
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/MH"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Maharashtra
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/AS"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Assam
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/CG"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Chhattisgarh
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/GJ"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Gujarat
-                  </NavLink>
-                  <NavLink
-                    to="/groups/farmer-registry/OD"
-                    end
-                    className={({ isActive }) =>
-                      `submenu-link ${isActive ? "active" : ""}`
-                    }
-                  >
-                    <span className="arrow" aria-hidden="true" />
-                    Odisha
-                  </NavLink>
-                </div>
-              )}
+    // Nested Farmer Registry
+    if (item.type === "nested") {
+      const isOpen = openSections[item.id];
 
-              {/* Others */}
-              <NavLink
-                to="/groups/mapper-apis"
-                className={({ isActive }) =>
-                  `submenu-item ${isActive ? "active" : ""}`
-                }
-                end
-              >
-                <span className="submenu-label">Mapper APIs</span>
-              </NavLink>
-              <NavLink
-                to="/groups/dcs-apis"
-                className={({ isActive }) =>
-                  `submenu-item ${isActive ? "active" : ""}`
-                }
-                end
-              >
-                <span className="submenu-label">DCS APIs</span>
-              </NavLink>
-              <NavLink
-                to="/groups/dpe-apis"
-                className={({ isActive }) =>
-                  `submenu-item ${isActive ? "active" : ""}`
-                }
-                end
-              >
-                <span className="submenu-label">DPE APIs</span>
-              </NavLink>
+      return (
+        <div key={item.id}>
+          <button
+            type="button"
+            className="submenu-item has-children"
+            onClick={() => toggleSection(item.id)}
+            aria-expanded={isOpen}
+          >
+            <span className="submenu-label">{item.label}</span>
+            <span className={`chev ${isOpen ? "open" : ""}`}>▾</span>
+          </button>
+
+          {isOpen && (
+            <div className="submenu nested open">
+              {item.children.map((state) => (
+                <NavLink
+                  key={state.code}
+                  to={`/groups/${item.id}/${state.code}`}
+                  className={({ isActive }) =>
+                    `submenu-link ${isActive ? "active" : ""}`
+                  }
+                  end
+                >
+                  <span className="arrow" />
+                  {state.label}
+                </NavLink>
+              ))}
             </div>
           )}
         </div>
-        {/* ===== end GROUPS ===== */}
-      </nav>
+      );
+    }
 
-      {/* BOTTOM (pinned) */}
-      <div className="sidebar-bottom">
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            `sidebar-item ${isActive ? "active" : ""}`
-          }
-          title={collapsed ? "Settings" : undefined}
-          end
-        >
-          <span className="item-icon" aria-hidden="true">
-            <Settings size={18} />
-          </span>
-          {!collapsed && <span className="item-label">Settings</span>}
-        </NavLink>
+    // Dynamic list: Mappers, DCS, DPE
+    if (item.type === "dynamic-list") {
+      const isOpen = openSections[item.id];
+
+      return (
+        <div key={item.id}>
+          <button
+            type="button"
+            className="submenu-item has-children"
+            onClick={() => toggleSection(item.id)}
+            aria-expanded={isOpen}
+          >
+            <span className="submenu-label">{item.label}</span>
+            <span className={`chev ${isOpen ? "open" : ""}`}>▾</span>
+          </button>
+
+          {isOpen && (
+            <div className="submenu nested open">
+              {item.children.map((row) => (
+                <NavLink
+                  key={row.code}
+                  to={`/groups/${item.id}/${row.code}`}
+                  className={({ isActive }) =>
+                    `submenu-link ${isActive ? "active" : ""}`
+                  }
+                  end
+                >
+                  <span className="arrow" />
+                  {row.label}
+                </NavLink>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+  };
+
+  return (
+    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+      <div className="sidebar-top">
+        <button className="hamburger" onClick={onToggle}>
+          <Menu className="hamburger-icon" size={22} />
+        </button>
       </div>
+
+      <nav className="sidebar-menu">{sidebarConfig.map(renderMenu)}</nav>
+
+      <div className="sidebar-bottom"></div>
     </aside>
   );
 };

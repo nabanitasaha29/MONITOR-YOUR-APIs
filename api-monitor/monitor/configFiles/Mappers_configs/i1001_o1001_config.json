@@ -1,0 +1,1496 @@
+{
+    "Mapper API UP i1001:o1001": [
+        {
+            "name": "Token API for UP Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "up_token": "$.access_token"
+            }
+        },
+        {
+            "name": "UP Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://upde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{up_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "30474722690",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "9"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API TR i1001:o1001": [
+        {
+            "name": "Token API for TR Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "tr_token": "$.access_token"
+            }
+        },
+        {
+            "name": "TR Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://trde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{tr_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "48326436961",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "16"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API KA i1001:o1001": [
+        {
+            "name": "Token API for KA Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "ka_token": "$.access_token"
+            }
+        },
+        {
+            "name": "KA Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://kade.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{ka_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "17787076738",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "29"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API RJ i1001:o1001": [
+        {
+            "name": "Token API for RJ Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "rj_token": "$.access_token"
+            }
+        },
+        {
+            "name": "RJ Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://rjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{rj_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "69208221214",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "8"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API TN i1001:o1001": [
+        {
+            "name": "Token API for TN Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "tn_token": "$.access_token"
+            }
+        },
+        {
+            "name": "TN Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://tnde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{tn_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "80700466578",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "33"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API AP i1001:o1001": [
+        {
+            "name": "Token API for AP Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "ap_token": "$.access_token"
+            }
+        },
+        {
+            "name": "AP Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://apde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{ap_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "32937346215",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "28"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API MP i1001:o1001": [
+        {
+            "name": "Token API for MP Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "mp_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MP Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://mpde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{mp_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "77619127549",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "23"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API HR i1001:o1001": [
+        {
+            "name": "Token API for HR Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "hr_token": "$.access_token"
+            }
+        },
+        {
+            "name": "HR Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://hrde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{hr_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "75889242911",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "6"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API PB i1001:o1001": [
+        {
+            "name": "Token API for PB Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "pb_token": "$.access_token"
+            }
+        },
+        {
+            "name": "PB Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://pbde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{pb_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "33623141457",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "3"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API CG i1001:o1001": [
+        {
+            "name": "Token API for CG Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "cg_token": "$.access_token"
+            }
+        },
+        {
+            "name": "CG Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://cgde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{cg_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "94323180484",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "27"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API TG i1001:o1001": [
+        {
+            "name": "Token API for TG Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "tg_token": "$.access_token"
+            }
+        },
+        {
+            "name": "TG Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://tgde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{tg_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "25122896293",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "36"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API KL i1001:o1001": [
+        {
+            "name": "Token API for KL Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "kl_token": "$.access_token"
+            }
+        },
+        {
+            "name": "KL Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://klde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{kl_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "64621179156",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "32"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API MH i1001:o1001": [
+        {
+            "name": "Token API for MH Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "mh_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MH Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://mhde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{mh_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "81272113488",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "27"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API HP i1001:o1001": [
+        {
+            "name": "Token API for HP Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "hp_token": "$.access_token"
+            }
+        },
+        {
+            "name": "HP Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://hpde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{hp_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "52533370312",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API BH i1001:o1001": [
+        {
+            "name": "Token API for BH Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "bh_token": "$.access_token"
+            }
+        },
+        {
+            "name": "BH Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://bhde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{bh_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "93230850223",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "10"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API AS i1001:o1001": [
+        {
+            "name": "Token API for AS Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "as_token": "$.access_token"
+            }
+        },
+        {
+            "name": "AS Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://asde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{as_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "11452587498",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "18"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API OD i1001:o1001": [
+        {
+            "name": "Token API for OD Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "od_token": "$.access_token"
+            }
+        },
+        {
+            "name": "OD Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://odde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{od_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "26714192152",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "21"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API GJ i1001:o1001": [
+        {
+            "name": "Token API for GJ Farmer Registry",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "gj_token": "$.access_token"
+            }
+        },
+        {
+            "name": "GJ Farmer Data by Farmer ID (i1001:o1001)",
+            "url": "https://gjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{gj_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "fn_agristack_v0_fn_get_farmer_data_by_farmer_id",
+                                    "mapper_id": "i1001:o1001",
+                                    "query_params": [
+                                        {
+                                            "farmer_id": "68174903247",
+                                            "aadhaar_type": "E",
+                                            "state_lgd_code": "24"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ]
+}

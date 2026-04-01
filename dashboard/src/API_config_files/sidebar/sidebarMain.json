@@ -1,0 +1,22 @@
+[
+    {
+        "id": "dashboard",
+        "label": "Dashboard",
+        "icon": "Home",
+        "type": "link",
+        "to": "/dashboard"
+    },
+    {
+        "id": "groups",
+        "label": "Groups",
+        "icon": "Layers",
+        "type": "group"
+    },
+    {
+        "id": "settings",
+        "label": "Settings",
+        "icon": "Settings",
+        "type": "link",
+        "to": "/settings"
+    }
+]

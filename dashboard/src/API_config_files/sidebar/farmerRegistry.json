@@ -1,0 +1,38 @@
+[
+    {
+        "label": "Rajasthan",
+        "code": "RJ"
+    },
+    {
+        "label": "Tamil Nadu",
+        "code": "TN"
+    },
+    {
+        "label": "Bihar",
+        "code": "BR"
+    },
+    {
+        "label": "Uttar Pradesh",
+        "code": "UP"
+    },
+    {
+        "label": "Maharashtra",
+        "code": "MH"
+    },
+    {
+        "label": "Assam",
+        "code": "AS"
+    },
+    {
+        "label": "Chhattisgarh",
+        "code": "CG"
+    },
+    {
+        "label": "Gujarat",
+        "code": "GJ"
+    },
+    {
+        "label": "Odisha",
+        "code": "OD"
+    }
+]

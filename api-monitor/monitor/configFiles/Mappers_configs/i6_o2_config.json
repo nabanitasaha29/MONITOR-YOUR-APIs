@@ -1,0 +1,441 @@
+{
+    "Mapper API MN i6:o2": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MN Anonymized Crop Sown Data (i6:o2)",
+            "url": "https://mnde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_fn_get_anonymize_crop_sown_data",
+                                    "mapper_id": "i6:o2",
+                                    "query_params": [
+                                        {
+                                            "villageLgdCode": 269874,
+                                            "year": "2024-2025",
+                                            "season": "Zaid",
+                                            "cropCode": [
+                                                "0300200",
+                                                "0401300",
+                                                "0500400",
+                                                "0500500",
+                                                "0500700"
+                                            ],
+                                            "mapper": "o2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API BH i6:o2": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "BH Anonymized Crop Sown Data (i6:o2)",
+            "url": "https://bhde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_fn_get_anonymize_crop_sown_data",
+                                    "mapper_id": "i6:o2",
+                                    "query_params": [
+                                        {
+                                            "villageLgdCode": 257018,
+                                            "year": "2025-2026",
+                                            "season": "Rabi",
+                                            "cropCode": [
+                                                "0101900",
+                                                "0200900",
+                                                "0800500"
+                                            ],
+                                            "mapper": "o2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API GJ i6:o2": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "GJ Anonymized Crop Sown Data (i6:o2)",
+            "url": "https://gjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_fn_get_anonymize_crop_sown_data",
+                                    "mapper_id": "i6:o2",
+                                    "query_params": [
+                                        {
+                                            "villageLgdCode": 508228,
+                                            "year": "2024-2025",
+                                            "season": "Kharif",
+                                            "cropCode": [],
+                                            "mapper": "o2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API CG i6:o2": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "CG Anonymized Crop Sown Data (i6:o2)",
+            "url": "https://cgde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_fn_get_anonymize_crop_sown_data",
+                                    "mapper_id": "i6:o2",
+                                    "query_params": [
+                                        {
+                                            "villageLgdCode": 442358,
+                                            "year": "2024-2025",
+                                            "season": "Kharif",
+                                            "cropCode": [],
+                                            "mapper": "o2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API UP i6:o2": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "UP Anonymized Crop Sown Data (i6:o2)",
+            "url": "https://upde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_fn_get_anonymize_crop_sown_data",
+                                    "mapper_id": "i6:o2",
+                                    "query_params": [
+                                        {
+                                            "villageLgdCode": 124607,
+                                            "year": "2024-2025",
+                                            "season": "Kharif",
+                                            "cropCode": [
+                                                "0101300",
+                                                "0200100",
+                                                "0700500"
+                                            ],
+                                            "mapper": "o2"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ]
+}

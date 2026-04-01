@@ -1,0 +1,794 @@
+{
+    "Mapper API RJ i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "RJ Land Data by Aadhaar (i1:o1)",
+            "url": "https://rjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "0258b3563d2654da100c67238b7aabece89db174125590b7a3404deca622b73d",
+                                            "farmer_aadhaar_name": "Hari Singh",
+                                            "farmer_aadhaar_father_husband_name": "Bhiv Singh Shekhawat",
+                                            "village_lgd_code": "81990",
+                                            "land_identifier": {
+                                                "survey_number": "1052"
+                                            },
+                                            "phone_number": "7073357156"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API MN i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MN Land Data by Aadhaar (i1:o1)",
+            "url": "https://mnde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "2be3b6dd6267cc3bc3d78352d964965670b003a938913279a1ed3735a0e4ac9a",
+                                            "farmer_aadhaar_name": "Fulwanta Hetram Bopche",
+                                            "farmer_aadhaar_father_husband_name": "Hetram Bopche",
+                                            "village_lgd_code": "928334",
+                                            "land_identifier": {
+                                                "survey_number": "1530/1"
+                                            },
+                                            "phone_number": "8251090336"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API UP i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "UP Land Data by Aadhaar (i1:o1)",
+            "url": "https://upde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "7651bc21c37b15c3dcb22988e6483ead1c2685b592902527b08156c31dd5e240",
+                                            "farmer_aadhaar_name": "Sanjay Kumar Katiyar",
+                                            "farmer_aadhaar_father_husband_name": "Anand Prakash",
+                                            "village_lgd_code": "146256",
+                                            "land_identifier": {
+                                                "survey_number": "230"
+                                            },
+                                            "phone_number": "0000000000"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API PB i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "PB Land Data by Aadhaar (i1:o1)",
+            "url": "https://pbde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "efb52fd238fc257a902593271ff8f72f85e94d29aa888a171d3f20455f8165f7",
+                                            "farmer_aadhaar_name": "Rama Devi",
+                                            "farmer_aadhaar_father_husband_name": "Jagveer",
+                                            "village_lgd_code": "37543",
+                                            "land_identifier": {
+                                                "survey_number": "8//25"
+                                            },
+                                            "phone_number": "9956886340"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API MH i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MH Land Data by Aadhaar (i1:o1)",
+            "url": "https://mhde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "6a49bff06d2f58eeff5919dfcb935bb53a3ebe3efed506fe19b661ed9cf154a1",
+                                            "farmer_aadhaar_name": "Vijaykumar Haridas Ghogale",
+                                            "farmer_aadhaar_father_husband_name": "Shri. Haridas Ghogale",
+                                            "village_lgd_code": "529652",
+                                            "land_identifier": {
+                                                "survey_number": "115"
+                                            },
+                                            "phone_number": "8411910033"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API GJ i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "GJ Land Data by Aadhaar (i1:o1)",
+            "url": "https://gjde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "b400f5feea2b11ba858e5bc10c047079505da3d19dad37780bb6564fb89dc2a2",
+                                            "farmer_aadhaar_name": "Bariya Jayantibhai",
+                                            "farmer_aadhaar_father_husband_name": "Vechatbhai",
+                                            "village_lgd_code": "518073",
+                                            "land_identifier": {
+                                                "survey_number": "80"
+                                            },
+                                            "phone_number": "9574096179"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API CG i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "CG Land Data by Aadhaar (i1:o1)",
+            "url": "https://cgde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "efb52fd238fc257a902593271ff8f72f85e94d29aa888a171d3f20455f8165f7",
+                                            "farmer_aadhaar_name": "Rama Devi",
+                                            "farmer_aadhaar_father_husband_name": "Jagveer",
+                                            "village_lgd_code": "432937",
+                                            "land_identifier": {
+                                                "survey_number": "323"
+                                            },
+                                            "phone_number": "9956886340"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API OD i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "OD Land Data by Aadhaar (i1:o1)",
+            "url": "https://odde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "b400f5feea2b11ba858e5bc10c047079505da3d19dad37780bb6564fb89dc2a2",
+                                            "farmer_aadhaar_name": "Bariya Jayantibhai",
+                                            "farmer_aadhaar_father_husband_name": "Vechatbhai",
+                                            "village_lgd_code": "518073",
+                                            "land_identifier": {
+                                                "survey_number": "80"
+                                            },
+                                            "phone_number": "9574096179"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ],
+    "Mapper API MP i1:o1": [
+        {
+            "name": "Token API for Agristack (UFSI)",
+            "url": "https://ufsi.agristack.gov.in/nm/token",
+            "method": "POST",
+            "payload": {
+                "client_id": "registry-frontend",
+                "username": "admin@usecases",
+                "password": "usecases@2025",
+                "grant_type": "password"
+            },
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "threshold": 500,
+            "extract": {
+                "access_token": "$.access_token"
+            }
+        },
+        {
+            "name": "MP Land Data by Aadhaar (i1:o1)",
+            "url": "https://mpde.agristack.gov.in/agristack-data-provisioning/v1/api/assetIdentification/seek",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {{access_token}}"
+            },
+            "payload": {
+                "requestToken": "",
+                "signature": "signature string",
+                "header": {
+                    "version": "0.1.0",
+                    "message_id": "{{message_id}}",
+                    "message_ts": "{{message_ts}}",
+                    "sender_id": "9c872083-9206-4e19-ae87-0f684a6e019d",
+                    "sender_uri": "https://betafr.agristack.gov.in/farmer-registry-api-up-qa/agristack/v1/api/central/seekerOnSeek",
+                    "receiver_id": "ed5288ce-aada-4fd9-b929-0062a08207c4",
+                    "total_count": 1,
+                    "is_msg_encrypted": false
+                },
+                "message": {
+                    "transaction_id": "{{transaction_id}}",
+                    "search_request": [
+                        {
+                            "reference_id": "{{reference_id}}",
+                            "timestamp": "{{message_ts}}",
+                            "search_criteria": {
+                                "query_type": "namedQuery",
+                                "reg_type": "agristack_farmer",
+                                "query": {
+                                    "query_name": "agristack_v0_get_land_data_based_on_aadhaar",
+                                    "mapper_id": "i1:o1",
+                                    "query_params": [
+                                        {
+                                            "farmer_aadhaar": "907486b8f6e44a6233b80a7f3f0649b15280979b3b1517aa2064b154a2cf469b",
+                                            "farmer_aadhaar_name": "Rakesh Kumar Ahirwar",
+                                            "farmer_aadhaar_father_husband_name": "Jasrath",
+                                            "village_lgd_code": "456733",
+                                            "land_identifier": {
+                                                "survey_number": "11"
+                                            },
+                                            "phone_number": "9977310434"
+                                        }
+                                    ]
+                                },
+                                "sort": [
+                                    {
+                                        "attribute_name": "string",
+                                        "sort_order": "asc"
+                                    }
+                                ],
+                                "pagination": {
+                                    "page_size": 2000,
+                                    "page_number": 1
+                                },
+                                "consent": {
+                                    "consent_required": false,
+                                    "consent_artifact": {}
+                                }
+                            },
+                            "locale": "en"
+                        }
+                    ]
+                }
+            },
+            "threshold": 800
+        }
+    ]
+}
